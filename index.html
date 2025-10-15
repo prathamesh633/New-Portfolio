@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[Name] – DevOps Engineer</title>
+  <meta name="description" content="DevOps Engineer | 1+ years shipping reliable infra at speed" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>" />
+</head>
+
+<body>
+  <div id="progress"></div>
+
+  <header>
+    <nav>
+      <div class="logo">&gt;_ [Name]</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" aria-label="toggle theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="hero">
+      <canvas id="particles"></canvas>
+      <div class="left">
+        <h1><span id="type-writer"></span><span class="cursor">|</span></h1>
+        <p>DevOps Engineer with 1+ years of experience shipping reliable, scalable and secure cloud-native infrastructure.</p>
+        <!-- <div class="badge-group">
+          <span class="badge">Kubernetes</span>
+          <span class="badge">Terraform</span>
+          <span class="badge">AWS</span>
+          <span class="badge">GitHub Actions</span>
+        </div> -->
+        <a class="btn" href="#contact"><i class="fa-solid fa-paper-plane"></i> Hire me</a>
+      </div>
+      <div class="right">
+        <div class="profile-wrapper">
+          <img src="https://i.pravatar.cc/300?img=25" alt="profile" class="profile-pic" />
+          <div class="glitch"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills & Tooling</h2>
+      <div class="skill-grid">
+        <div class="skill-card"><i class="fa-brands fa-aws"></i><span>AWS</span></div>
+        <div class="skill-card"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
+        <div class="skill-card"><i class="fa-solid fa-dharmachakra"></i><span>Terraform</span></div>
+        <div class="skill-card"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
+        <div class="skill-card"><i class="fa-solid fa-code-branch"></i><span>GitHub Actions</span></div>
+        <div class="skill-card"><i class="fa-solid fa-chart-line"></i><span>Prometheus</span></div>
+        <div class="skill-card"><i class="fa-brands fa-python"></i><span>Python</span></div>
+        <div class="skill-card"><i class="fa-solid fa-terminal"></i><span>Bash</span></div>
+      </div>
+    </section>
+
+    <section id="skill-bars">
+    <h2>Skill Strength</h2>
+
+    <!-- top row: 3 groups side-by-side -->
+    <div class="top-groups">
+        <div class="skill-group">
+        <h3>Cloud & Platforms</h3>
+        <div class="bar-row"><span class="bar-label">AWS</span>      <div class="bar-track"><div class="bar-fill" data-width="85"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Azure</span>    <div class="bar-track"><div class="bar-fill" data-width="70"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Linux</span>    <div class="bar-track"><div class="bar-fill" data-width="90"></div></div></div>
+        </div>
+
+        <div class="skill-group">
+        <h3>Containers & Orchestration</h3>
+        <div class="bar-row"><span class="bar-label">Docker</span>      <div class="bar-track"><div class="bar-fill" data-width="88"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Kubernetes</span><div class="bar-track"><div class="bar-fill" data-width="80"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Jenkins</span>   <div class="bar-track"><div class="bar-fill" data-width="75"></div></div></div>
+        </div>
+
+        <div class="skill-group">
+        <h3>Infrastructure as Code</h3>
+        <div class="bar-row"><span class="bar-label">Terraform</span><div class="bar-track"><div class="bar-fill" data-width="82"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Ansible</span>  <div class="bar-track"><div class="bar-fill" data-width="78"></div></div></div>
+        <div class="bar-row"><span class="bar-label">GitHub</span>   <div class="bar-track"><div class="bar-fill" data-width="92"></div></div></div>
+        </div>
+    </div>
+
+    <!-- bottom row: last 2 groups -->
+    <div class="bottom-groups">
+        <div class="skill-group">
+        <h3>Monitoring & Observability</h3>
+        <div class="bar-row"><span class="bar-label">Prometheus</span><div class="bar-track"><div class="bar-fill" data-width="72"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Grafana</span>  <div class="bar-track"><div class="bar-fill" data-width="74"></div></div></div>
+        <div class="bar-row"><span class="bar-label">ELK stack</span><div class="bar-track"><div class="bar-fill" data-width="68"></div></div></div>
+        </div>
+
+        <div class="skill-group">
+        <h3>Scripting & Automation</h3>
+        <div class="bar-row"><span class="bar-label">Python</span>       <div class="bar-track"><div class="bar-fill" data-width="86"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Shell scripting</span><div class="bar-track"><div class="bar-fill" data-width="89"></div></div></div>
+        </div>
+    </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-side="right">
+          <div class="content">
+            <h4>B.Tech – Computer Science</h4>
+            <div class="date">2020 – 2024</div>
+            <p>8.7 CGPA. Built college cloud club, organised 3 DevOps workshops, led 30-student Kubernetes bootcamp.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-side="left">
+          <div class="content">
+            <h4>AWS Certified Solutions Architect – Associate</h4>
+            <div class="date">Dec 2023</div>
+            <p>Self-prepare in 6 weeks; hands-on labs with VPC, ECS, Lambda, Route 53, cost optimisations.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-side="right">
+          <div class="content">
+            <h4>Google IT Automation with Python</h4>
+            <div class="date">Aug 2023</div>
+            <p>6-course Coursera specialisation – Git, Python, automation, troubleshooting & CI basics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="top">
+            <h3>GitOps Delivery Platform</h3>
+            <div class="tags"><span class="tag">EKS</span><span class="tag">ArgoCD</span><span class="tag">Terraform</span></div>
+          </div>
+          <p>Bootstrapped multi-tenant EKS + ArgoCD. Lead-time dropped from 2 days to 30 min, rollback &lt;5 min.</p>
+          <div class="links">
+            <a href="https://github.com/YOU/gitops-platform" target="_blank"><i class="fa-brands fa-github"></i> Source</a>
+            <a href="https://demo.you.dev" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="top">
+            <h3>Real-Time Cost-Anomaly Detector</h3>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Lambda</span><span class="tag">S3</span></div>
+          </div>
+          <p>Server-less pipeline using Prophet model. Saved 18 % on monthly AWS bill within first quarter.</p>
+          <div class="links">
+            <a href="https://github.com/YOU/cost-guard" target="_blank"><i class="fa-brands fa-github"></i> Source</a>
+            <a href="https://cost-demo.you.dev" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="top">
+            <h3>Zero-Downtime ECS Shifter</h3>
+            <div class="tags"><span class="tag">Go</span><span class="tag">ECS</span><span class="tag">CloudWatch</span></div>
+          </div>
+          <p>Go CLI with blue/green & automated rollback. Reduced deployment failure rate by 27 %.</p>
+          <div class="links">
+            <a href="https://github.com/YOU/ecs-shifter" target="_blank"><i class="fa-brands fa-github"></i> Source</a>
+            <a href="https://github.com/YOU/ecs-shifter/releases" target="_blank"><i class="fa-solid fa-download"></i> Releases</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="top">
+            <h3>K8s Multi-Cluster Backup Controller</h3>
+            <div class="tags"><span class="tag">Kubebuilder</span><span class="tag">Velero</span><span class="tag">Golang</span></div>
+          </div>
+          <p>Kubernetes operator for 12 EKS clusters. Backups finish 40 % faster, fully hands-off.</p>
+          <div class="links">
+            <a href="https://github.com/YOU/k8s-backup-controller" target="_blank"><i class="fa-brands fa-github"></i> Source</a>
+            <a href="https://artifacthub.io/packages/YOU/k8s-backup-controller" target="_blank"><i class="fa-solid fa-box"></i> Helm Chart</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <h2>Journey</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-side="right">
+          <div class="content">
+            <h4>DevOps Engineer – [Current Company]</h4>
+            <div class="date">Jan 2023 – Present</div>
+            <p>Own CI/CD platform for 50+ engineers. Migrated 200+ pipelines to GitHub Actions, cut build time 40 %, deployments 5×/day.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-side="left">
+          <div class="content">
+            <h4>Cloud Intern – [Previous Company]</h4>
+            <div class="date">May 2022 – Dec 2022</div>
+            <p>Containerised legacy apps, wrote 30+ Ansible playbooks, built Grafana dashboards—MTTD ↓ 25 %.</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-side="right">
+          <div class="content">
+            <h4>Teaching Assistant – University</h4>
+            <div class="date">Aug 2021 – Apr 2022</div>
+            <p>Helped 120 students with DSA. Created auto-grading GitHub Classroom pipelines, professor grading load ↓ 60 %.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Let’s Connect</h2>
+      <div class="contact-grid">
+        <form action="https://formspree.io/f/YOUR_ID" method="POST" class="contact-form">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="_replyto" placeholder="Your email" required />
+          <textarea name="message" rows="5" placeholder="Tell me about your infra pain-points..." required></textarea>
+          <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+        </form>
+        <div class="info-card">
+          <h3>Reach Me</h3>
+          <ul>
+            <li><i class="fa-solid fa-envelope"></i> you@domain.com</li>
+            <li><i class="fa-solid fa-phone"></i> +1 234 567 890</li>
+            <li><i class="fa-solid fa-location-dot"></i> San Francisco, CA</li>
+            <li><i class="fa-brands fa-linkedin"></i> linkedin.com/in/YOU</li>
+            <li><i class="fa-brands fa-github"></i> github.com/YOU</li>
+            <li><i class="fa-solid fa-globe"></i> you.dev</li>
+          </ul>
+          <a href="assets/resume.pdf" target="_blank" class="btn resume-btn"><i class="fa-solid fa-download"></i> Download Résumé</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-social">
+      <a href="https://github.com/YOU" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com/in/YOU" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="mailto:you@domain.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    Built with ⚙️ &amp; vanilla code – no cookies, no trackers.
+  </footer>
+
+  <script src="script.js?v=3"></script>
+  <script>
+    document.documentElement.classList.remove('light');
+  </script>
+</body>
+</html>
