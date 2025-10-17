@@ -147,16 +147,21 @@ timelineItems.forEach((item) => tlObserver.observe(item));
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 let particlesArray = [];
-const numberParticles = 80;
-let mouse = { x: null, y: null, radius: 150 };
+const numberParticles = 70;
+let mouse = { x: null, y: null, radius: 130 };
 
 function resizeCanvas() {
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
+  const cssWidth = canvas.offsetWidth;
+  const cssHeight = canvas.offsetHeight;
+  const ratio = Math.min(window.devicePixelRatio || 1, 2);
+  canvas.width = Math.max(1, Math.floor(cssWidth * ratio));
+  canvas.height = Math.max(1, Math.floor(cssHeight * ratio));
+  ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
   initParticles();
 }
 
 window.addEventListener("resize", resizeCanvas);
+window.addEventListener("load", resizeCanvas);
 canvas.addEventListener("mousemove", (e) => {
   const rect = canvas.getBoundingClientRect();
   mouse.x = e.clientX - rect.left;
@@ -174,11 +179,11 @@ class Particle {
   constructor() {
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 3 + 1;
+    this.size = Math.random() * 2 + 0.8;
     this.baseSize = this.size;
-    this.speedX = Math.random() * 0.6 - 0.3;
-    this.speedY = Math.random() * 0.6 - 0.3;
-    this.opacity = Math.random() * 0.5 + 0.3;
+    this.speedX = Math.random() * 0.3 - 0.15;
+    this.speedY = Math.random() * 0.3 - 0.15;
+    this.opacity = Math.random() * 0.25 + 0.25; // slightly more visible
   }
   
   update() {
@@ -191,9 +196,9 @@ class Particle {
       if (distance < mouse.radius) {
         const force = (mouse.radius - distance) / mouse.radius;
         const angle = Math.atan2(dy, dx);
-        this.x -= Math.cos(angle) * force * 2;
-        this.y -= Math.sin(angle) * force * 2;
-        this.size = this.baseSize + force * 2;
+        this.x -= Math.cos(angle) * force * 1.2;
+        this.y -= Math.sin(angle) * force * 1.2;
+        this.size = this.baseSize + force * 1.2;
       } else {
         this.size = this.baseSize;
       }
@@ -237,11 +242,11 @@ function connectParticles() {
       const dy = particlesArray[i].y - particlesArray[j].y;
       const distance = Math.sqrt(dx * dx + dy * dy);
       
-      if (distance < 100) {
-        const opacity = 1 - distance / 100;
-        ctx.globalAlpha = opacity * 0.3;
+      if (distance < 85) {
+        const opacity = 1 - distance / 85;
+        ctx.globalAlpha = opacity * 0.2;
         ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim();
-        ctx.lineWidth = 1;
+        ctx.lineWidth = 0.8;
         ctx.beginPath();
         ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
         ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
