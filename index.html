@@ -9,11 +9,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=5" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>" />
 </head>
 
 <body>
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader">
+      <div class="loader-inner">
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+          <div class="loader-line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="progress"></div>
 
   <header>
@@ -36,14 +59,17 @@
       <canvas id="particles"></canvas>
       <div class="left">
         <h1><span id="type-writer"></span><span class="cursor">|</span></h1>
-        <p>DevOps Engineer with 1+ years of experience shipping reliable, scalable and secure cloud-native infrastructure.</p>
+        <p class="hero-description">DevOps Engineer with 1+ years of experience shipping reliable, scalable and secure cloud-native infrastructure. Passionate about automation, monitoring, and building resilient systems.</p>
         <!-- <div class="badge-group">
           <span class="badge">Kubernetes</span>
           <span class="badge">Terraform</span>
           <span class="badge">AWS</span>
           <span class="badge">GitHub Actions</span>
         </div> -->
-        <a class="btn" href="#contact"><i class="fa-solid fa-paper-plane"></i> Hire me</a>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Hire me</a>
+          <a class="btn secondary" href="#projects"><i class="fa-solid fa-code"></i> View Work</a>
+        </div>
       </div>
       <div class="right">
         <div class="profile-wrapper">
@@ -55,15 +81,36 @@
 
     <section id="skills">
       <h2>Skills & Tooling</h2>
-      <div class="skill-grid">
-        <div class="skill-card"><i class="fa-brands fa-aws"></i><span>AWS</span></div>
-        <div class="skill-card"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
-        <div class="skill-card"><i class="fa-solid fa-dharmachakra"></i><span>Terraform</span></div>
-        <div class="skill-card"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
-        <div class="skill-card"><i class="fa-solid fa-code-branch"></i><span>GitHub Actions</span></div>
-        <div class="skill-card"><i class="fa-solid fa-chart-line"></i><span>Prometheus</span></div>
-        <div class="skill-card"><i class="fa-brands fa-python"></i><span>Python</span></div>
-        <div class="skill-card"><i class="fa-solid fa-terminal"></i><span>Bash</span></div>
+      
+      <!-- Continuous Scrolling Skills Bar -->
+      <div class="skills-ticker">
+        <div class="skills-track">
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/prometheus/prometheus-original.svg" alt="Prometheus"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gitlab/gitlab-original.svg" alt="GitLab"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ansible/ansible-original.svg" alt="Ansible"></div>
+          <!-- Duplicate for seamless loop -->
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/prometheus/prometheus-original.svg" alt="Prometheus"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gitlab/gitlab-original.svg" alt="GitLab"></div>
+          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ansible/ansible-original.svg" alt="Ansible"></div>
+        </div>
       </div>
     </section>
 
@@ -74,23 +121,23 @@
     <div class="top-groups">
         <div class="skill-group">
         <h3>Cloud & Platforms</h3>
-        <div class="bar-row"><span class="bar-label">AWS</span>      <div class="bar-track"><div class="bar-fill" data-width="85"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Azure</span>    <div class="bar-track"><div class="bar-fill" data-width="70"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Linux</span>    <div class="bar-track"><div class="bar-fill" data-width="90"></div></div></div>
+        <div class="bar-row"><span class="bar-label">AWS</span>      <div class="bar-track"><div class="bar-fill" data-width="70" style="width:70%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Azure</span>    <div class="bar-track"><div class="bar-fill" data-width="55" style="width:55%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Linux</span>    <div class="bar-track"><div class="bar-fill" data-width="80" style="width:80%"></div></div></div>
         </div>
 
         <div class="skill-group">
         <h3>Containers & Orchestration</h3>
-        <div class="bar-row"><span class="bar-label">Docker</span>      <div class="bar-track"><div class="bar-fill" data-width="88"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Kubernetes</span><div class="bar-track"><div class="bar-fill" data-width="80"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Jenkins</span>   <div class="bar-track"><div class="bar-fill" data-width="75"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Docker</span>      <div class="bar-track"><div class="bar-fill" data-width="75" style="width:75%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Kubernetes</span><div class="bar-track"><div class="bar-fill" data-width="60" style="width:60%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Jenkins</span>   <div class="bar-track"><div class="bar-fill" data-width="55" style="width:55%"></div></div></div>
         </div>
 
         <div class="skill-group">
         <h3>Infrastructure as Code</h3>
-        <div class="bar-row"><span class="bar-label">Terraform</span><div class="bar-track"><div class="bar-fill" data-width="82"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Ansible</span>  <div class="bar-track"><div class="bar-fill" data-width="78"></div></div></div>
-        <div class="bar-row"><span class="bar-label">GitHub</span>   <div class="bar-track"><div class="bar-fill" data-width="92"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Terraform</span><div class="bar-track"><div class="bar-fill" data-width="65" style="width:65%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Ansible</span>  <div class="bar-track"><div class="bar-fill" data-width="60" style="width:60%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">GitHub</span>   <div class="bar-track"><div class="bar-fill" data-width="70" style="width:70%"></div></div></div>
         </div>
     </div>
 
@@ -98,15 +145,15 @@
     <div class="bottom-groups">
         <div class="skill-group">
         <h3>Monitoring & Observability</h3>
-        <div class="bar-row"><span class="bar-label">Prometheus</span><div class="bar-track"><div class="bar-fill" data-width="72"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Grafana</span>  <div class="bar-track"><div class="bar-fill" data-width="74"></div></div></div>
-        <div class="bar-row"><span class="bar-label">ELK stack</span><div class="bar-track"><div class="bar-fill" data-width="68"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Prometheus</span><div class="bar-track"><div class="bar-fill" data-width="50" style="width:50%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Grafana</span>  <div class="bar-track"><div class="bar-fill" data-width="55" style="width:55%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">ELK stack</span><div class="bar-track"><div class="bar-fill" data-width="45" style="width:45%"></div></div></div>
         </div>
 
         <div class="skill-group">
         <h3>Scripting & Automation</h3>
-        <div class="bar-row"><span class="bar-label">Python</span>       <div class="bar-track"><div class="bar-fill" data-width="86"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Shell scripting</span><div class="bar-track"><div class="bar-fill" data-width="89"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Python</span>       <div class="bar-track"><div class="bar-fill" data-width="65" style="width:65%"></div></div></div>
+        <div class="bar-row"><span class="bar-label">Shell scripting</span><div class="bar-track"><div class="bar-fill" data-width="70" style="width:70%"></div></div></div>
         </div>
     </div>
     </section>
@@ -249,8 +296,19 @@
     Built with ⚙️ &amp; vanilla code – no cookies, no trackers.
   </footer>
 
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=6"></script>
   <script>
+    // Remove loading screen after page loads
+    window.addEventListener('load', () => {
+      const loadingScreen = document.getElementById('loading-screen');
+      setTimeout(() => {
+        loadingScreen.style.opacity = '0';
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 500);
+      }, 1000);
+    });
+    
     document.documentElement.classList.remove('light');
   </script>
 </body>
