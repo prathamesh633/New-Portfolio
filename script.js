@@ -418,3 +418,75 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+// ----------  Radial skill bars animation  ----------
+const radialObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const skill = entry.target;
+        const percent = parseInt(skill.getAttribute('data-percent'));
+        const circle = skill.querySelector('.radial-bar');
+        const percentEl = skill.querySelector('.radial-percent');
+        
+        if (circle && !skill.classList.contains('animated')) {
+          skill.classList.add('animated');
+          const radius = 54;
+          const circumference = 2 * Math.PI * radius;
+          const offset = circumference - (percent / 100) * circumference;
+          
+          circle.style.strokeDasharray = circumference;
+          circle.style.strokeDashoffset = circumference;
+          
+          setTimeout(() => {
+            circle.style.strokeDashoffset = offset;
+          }, 100 + Math.random() * 200);
+          // keep existing static text
+        }
+        
+        radialObserver.unobserve(skill);
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+document.querySelectorAll('.radial-skill').forEach((el) => radialObserver.observe(el));
+
+// Fallback: immediately set radial progress in case observer doesn't fire
+(() => {
+  const skills = document.querySelectorAll('.radial-skill');
+  if (!skills.length) return;
+  const radius = 54;
+  const circumference = 2 * Math.PI * radius;
+  skills.forEach((skill) => {
+    const circle = skill.querySelector('.radial-bar');
+    const percent = parseInt(skill.getAttribute('data-percent'));
+    const percentEl = skill.querySelector('.radial-percent');
+    if (!circle || isNaN(percent)) return;
+    const offset = circumference - (percent / 100) * circumference;
+    circle.style.strokeDasharray = circumference;
+    circle.style.strokeDashoffset = offset;
+    // Also set CSS variable so CSS-only calc fills the ring
+    skill.style.setProperty('--p', (percent / 100).toString());
+    // leave text unchanged
+  });
+})();
+
+// Also ensure on full window load
+window.addEventListener('load', () => {
+  const radius = 54;
+  const circumference = 2 * Math.PI * radius;
+  document.querySelectorAll('.radial-skill').forEach((skill) => {
+    const circle = skill.querySelector('.radial-bar');
+    const percent = parseInt(skill.getAttribute('data-percent'));
+    const percentEl = skill.querySelector('.radial-percent');
+    if (!circle || isNaN(percent)) return;
+    const offset = circumference - (percent / 100) * circumference;
+    circle.style.strokeDasharray = circumference;
+    circle.style.strokeDashoffset = offset;
+    // Keep CSS var in sync
+    skill.style.setProperty('--p', (percent / 100).toString());
+    // leave text unchanged
+  });
+});

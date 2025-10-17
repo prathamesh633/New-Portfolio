@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css?v=11" />
+  <link rel="stylesheet" href="style.css?v=15" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>" />
 </head>
 
@@ -115,43 +115,115 @@
     <section id="skill-bars">
     <h2>Skill Strength</h2>
 
-    <!-- top row: 3 groups side-by-side -->
-    <div class="top-groups">
-        <div class="skill-group">
-        <h3>Cloud & Platforms</h3>
-        <div class="bar-row"><span class="bar-label">AWS</span>      <div class="bar-track"><div class="bar-fill" data-width="70" style="width:70%"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Azure</span>    <div class="bar-track"><div class="bar-fill" data-width="55" style="width:55%"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Linux</span>    <div class="bar-track"><div class="bar-fill" data-width="80" style="width:80%"></div></div></div>
+    <div class="radial-skills-grid">
+        <div class="radial-skill" data-percent="70" style="--p:0.70">
+          <svg class="radial-progress" viewBox="0 0 120 120">
+            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="radial-text">
+            <span class="radial-percent">70%</span>
+            <span class="radial-label">AWS</span>
+          </div>
         </div>
 
-        <div class="skill-group">
-        <h3>Containers & Orchestration</h3>
-        <div class="bar-row"><span class="bar-label">Docker</span>      <div class="bar-track"><div class="bar-fill" data-width="75" style="width:75%"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Kubernetes</span><div class="bar-track"><div class="bar-fill" data-width="60" style="width:60%"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Jenkins</span>   <div class="bar-track"><div class="bar-fill" data-width="55" style="width:55%"></div></div></div>
+        <div class="radial-skill" data-percent="55" style="--p:0.55">
+          <svg class="radial-progress" viewBox="0 0 120 120">
+            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="radial-text">
+            <span class="radial-percent">55%</span>
+            <span class="radial-label">Azure</span>
+          </div>
         </div>
 
-        <div class="skill-group">
-        <h3>Infrastructure as Code</h3>
-        <div class="bar-row"><span class="bar-label">Terraform</span><div class="bar-track"><div class="bar-fill" data-width="65" style="width:65%"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Ansible</span>  <div class="bar-track"><div class="bar-fill" data-width="60" style="width:60%"></div></div></div>
-        <div class="bar-row"><span class="bar-label">GitHub</span>   <div class="bar-track"><div class="bar-fill" data-width="70" style="width:70%"></div></div></div>
-        </div>
-    </div>
-
-    <!-- bottom row: last 2 groups -->
-    <div class="bottom-groups">
-        <div class="skill-group">
-        <h3>Monitoring & Observability</h3>
-        <div class="bar-row"><span class="bar-label">Prometheus</span><div class="bar-track"><div class="bar-fill" data-width="50" style="width:50%"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Grafana</span>  <div class="bar-track"><div class="bar-fill" data-width="55" style="width:55%"></div></div></div>
-        <div class="bar-row"><span class="bar-label">ELK stack</span><div class="bar-track"><div class="bar-fill" data-width="45" style="width:45%"></div></div></div>
+        <div class="radial-skill" data-percent="80" style="--p:0.80">
+          <svg class="radial-progress" viewBox="0 0 120 120">
+            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="radial-text">
+            <span class="radial-percent">80%</span>
+            <span class="radial-label">Linux</span>
+          </div>
         </div>
 
-        <div class="skill-group">
-        <h3>Scripting & Automation</h3>
-        <div class="bar-row"><span class="bar-label">Python</span>       <div class="bar-track"><div class="bar-fill" data-width="65" style="width:65%"></div></div></div>
-        <div class="bar-row"><span class="bar-label">Shell scripting</span><div class="bar-track"><div class="bar-fill" data-width="70" style="width:70%"></div></div></div>
+        <div class="radial-skill" data-percent="75" style="--p:0.75">
+          <svg class="radial-progress" viewBox="0 0 120 120">
+            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="radial-text">
+            <span class="radial-percent">75%</span>
+            <span class="radial-label">Docker</span>
+          </div>
+        </div>
+
+        <div class="radial-skill" data-percent="60" style="--p:0.60">
+          <svg class="radial-progress" viewBox="0 0 120 120">
+            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="radial-text">
+            <span class="radial-percent">60%</span>
+            <span class="radial-label">Kubernetes</span>
+          </div>
+        </div>
+
+        <div class="radial-skill" data-percent="65" style="--p:0.65">
+          <svg class="radial-progress" viewBox="0 0 120 120">
+            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="radial-text">
+            <span class="radial-percent">65%</span>
+            <span class="radial-label">Terraform</span>
+          </div>
+        </div>
+
+        <div class="radial-skill" data-percent="60" style="--p:0.60">
+          <svg class="radial-progress" viewBox="0 0 120 120">
+            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="radial-text">
+            <span class="radial-percent">60%</span>
+            <span class="radial-label">Ansible</span>
+          </div>
+        </div>
+
+        <div class="radial-skill" data-percent="50" style="--p:0.50">
+          <svg class="radial-progress" viewBox="0 0 120 120">
+            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="radial-text">
+            <span class="radial-percent">50%</span>
+            <span class="radial-label">Prometheus</span>
+          </div>
+        </div>
+
+        <div class="radial-skill" data-percent="55" style="--p:0.55">
+          <svg class="radial-progress" viewBox="0 0 120 120">
+            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="radial-text">
+            <span class="radial-percent">55%</span>
+            <span class="radial-label">Grafana</span>
+          </div>
+        </div>
+
+        <div class="radial-skill" data-percent="65" style="--p:0.65">
+          <svg class="radial-progress" viewBox="0 0 120 120">
+            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
+            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
+          </svg>
+          <div class="radial-text">
+            <span class="radial-percent">65%</span>
+            <span class="radial-label">Python</span>
+          </div>
         </div>
     </div>
     </section>
@@ -294,7 +366,7 @@
     Built with ⚙️ &amp; vanilla code – no cookies, no trackers.
   </footer>
 
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
   <script>
     // Remove loading screen after page loads
     window.addEventListener('load', () => {
