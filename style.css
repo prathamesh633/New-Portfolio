@@ -353,39 +353,12 @@ nav {
 }
 
 .profile-wrapper:hover .profile-pic {
-  transform: scale(1.05);
-  box-shadow: var(--shadow-lg), 0 0 30px var(--accent);
+  transform: scale(1.08);
+  box-shadow: var(--shadow-lg), 0 0 40px var(--accent), 0 0 80px rgba(255, 77, 148, 0.3);
+  filter: brightness(1.1) saturate(1.2);
 }
 .glitch {
-  position: absolute;
-  inset: 0;
-  background: url("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=300") no-repeat center/cover;
-  border-radius:  50%;
-  opacity: 0;
-}
-.profile-wrapper:hover .glitch {
-  animation: glitch 0.3s infinite;
-  opacity: 0.8;
-}
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
+  display: none;
 }
 #type-writer {
   font-size: clamp(2.5rem, 6vw, 4rem);
