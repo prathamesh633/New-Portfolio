@@ -344,18 +344,26 @@ nav {
   background: linear-gradient(45deg, var(--accent), var(--accent2), var(--accent3));
   border-radius: 50%;
   z-index: -1;
-  animation: rotate 3s linear infinite;
 }
 
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.profile-wrapper:hover::before {
+  background-size: 200% 200%;
+  animation: shiver 1.2s ease-in-out infinite;
+}
+
+@keyframes shiver {
+  0%   { transform: rotate(0deg) translate(0, 0); background-position: 0% 50%; filter: none; }
+  20%  { transform: rotate(2deg) translate(1px, -1px); background-position: 50% 50%; }
+  40%  { transform: rotate(-2deg) translate(-1px, 1px); background-position: 100% 50%; }
+  60%  { transform: rotate(1.5deg) translate(1px, 0); background-position: 50% 50%; }
+  80%  { transform: rotate(-1.5deg) translate(-1px, 0); background-position: 0% 50%; }
+  100% { transform: rotate(0deg) translate(0, 0); background-position: 0% 50%; }
 }
 
 .profile-wrapper:hover .profile-pic {
-  transform: scale(1.08);
-  box-shadow: var(--shadow-lg), 0 0 40px var(--accent), 0 0 80px rgba(255, 77, 148, 0.3);
-  filter: brightness(1.1) saturate(1.2);
+  transform: none;
+  box-shadow: var(--shadow-lg), inset 0 0 20px rgba(0, 212, 255, 0.2);
+  filter: none;
 }
 .glitch {
   display: none;
