@@ -1,0 +1,13 @@
+name: demo_workflow
+
+# when pushed to main branch this workflow activtes
+on: [ push ]
+
+jobs:
+  demo-job:
+    # this workflow runs in ubuntu
+    runs-on: ubuntu-24.04
+    steps:
+    # thus workflow will pring hello world
+    - name: Print hello world
+      run: echo "hello world"
