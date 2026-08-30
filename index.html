@@ -1,386 +1,951 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>[Name] – DevOps Engineer</title>
-  <meta name="description" content="DevOps Engineer | 1+ years shipping reliable infra at speed" />
+  <title>Prathamesh Bhujade | DevOps & Cloud Infrastructure Engineer</title>
+  <meta name="description" content="DevOps Engineer specializing in AWS, Kubernetes, Docker, Terraform, and CI/CD automation. Building resilient, scalable, and automated cloud infrastructure." />
+  <meta name="author" content="Prathamesh Bhujade" />
+  <meta name="keywords" content="Prathamesh Bhujade, DevOps Engineer, Cloud Engineer, AWS, Kubernetes, Docker, Terraform, CI/CD, GitHub Actions, Linux, Prometheus, Grafana, Ansible" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Prathamesh Bhujade | DevOps & Cloud Engineer" />
+  <meta property="og:description" content="DevOps Engineer specializing in cloud infrastructure, container orchestration, and CI/CD automation." />
+  <meta property="og:image" content="images/DP.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prathamesh Bhujade | DevOps & Cloud Engineer" />
+  <meta name="twitter:description" content="DevOps Engineer specializing in cloud infrastructure, container orchestration, and CI/CD automation." />
+  <meta name="twitter:image" content="images/DP.png" />
+
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css?v=15" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <link rel="stylesheet" href="style.css?v=20" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>" />
 </head>
 
 <body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
   <!-- Loading Screen -->
   <div id="loading-screen">
-    <div class="loader">
-      <div class="loader-inner">
-        <div class="loader-line-wrap">
-          <div class="loader-line"></div>
+    <div class="loader-container">
+      <div class="terminal-loader">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="terminal-title">infra-init.sh</span>
         </div>
-        <div class="loader-line-wrap">
-          <div class="loader-line"></div>
-        </div>
-        <div class="loader-line-wrap">
-          <div class="loader-line"></div>
-        </div>
-        <div class="loader-line-wrap">
-          <div class="loader-line"></div>
-        </div>
-        <div class="loader-line-wrap">
-          <div class="loader-line"></div>
+        <div class="terminal-body">
+          <p><span class="prompt">$</span> initializing cloud cluster...</p>
+          <div class="progress-bar-loader"><div class="progress-fill"></div></div>
+          <p class="loader-status">Provisioning nodes <span class="spinner-icon">⟳</span></p>
         </div>
       </div>
     </div>
   </div>
 
-  <header>
-    <nav>
-      <div class="logo">&gt;_ Prathamesh Bhujade</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#journey">Journey</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button id="theme-toggle" aria-label="toggle theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Header Navigation -->
+  <header id="navbar">
+    <nav class="nav-content">
+      <a href="#about" class="logo" aria-label="Prathamesh Bhujade Home">
+        <span class="logo-terminal">&gt;_</span>
+        <span class="logo-name">Prathamesh<span class="logo-accent">.dev</span></span>
+      </a>
+
+      <div class="nav-center-group">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link active">About</a></li>
+          <li><a href="#terminal-section" class="nav-link">Terminal</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#journey" class="nav-link">Experience</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-actions">
+        <div class="status-indicator-badge" title="Status: Available for opportunities">
+          <span class="status-pulse"></span>
+          <span class="status-text">Available</span>
+        </div>
+
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon theme-icon-dark"></i>
+          <i class="fa-solid fa-sun theme-icon-light"></i>
+        </button>
+
+        <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
     </nav>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-drawer" class="mobile-drawer">
+      <ul class="mobile-nav-links">
+        <li><a href="#about" class="mobile-nav-link"><i class="fa-solid fa-user"></i> About</a></li>
+        <li><a href="#terminal-section" class="mobile-nav-link"><i class="fa-solid fa-terminal"></i> Terminal</a></li>
+        <li><a href="#skills" class="mobile-nav-link"><i class="fa-solid fa-layer-group"></i> Skills</a></li>
+        <li><a href="#projects" class="mobile-nav-link"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+        <li><a href="#journey" class="mobile-nav-link"><i class="fa-solid fa-briefcase"></i> Experience</a></li>
+        <li><a href="#education" class="mobile-nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
+        <li><a href="#contact" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+      <div class="mobile-drawer-footer">
+        <a href="#contact" class="btn btn-primary btn-sm full-width"><i class="fa-solid fa-paper-plane"></i> Get in Touch</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section id="about" class="hero">
+    <!-- Hero Section -->
+    <section id="about" class="hero-section">
       <canvas id="particles"></canvas>
-      <div class="left">
-        <h1><span id="type-writer"></span><span class="cursor">|</span></h1>
-        <p class="hero-description">DevOps Engineer with 1+ years of experience shipping reliable, scalable and secure cloud-native infrastructure. Passionate about automation, monitoring, and building resilient systems.</p>
-        <!-- <div class="badge-group">
-          <span class="badge">Kubernetes</span>
-          <span class="badge">Terraform</span>
-          <span class="badge">AWS</span>
-          <span class="badge">GitHub Actions</span>
-        </div> -->
-        <div class="hero-buttons">
-          <a class="btn primary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Hire me</a>
-          <a class="btn secondary" href="#projects"><i class="fa-solid fa-code"></i> View Work</a>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge-pill animate-fade-in">
+            <span class="badge-dot"></span>
+            <span>Cloud &amp; DevOps Engineer</span>
+            <span class="badge-sep">•</span>
+            <span class="badge-highlight">Infrastructure Automation</span>
+          </div>
+
+          <h1 class="hero-title">
+            Hi, I'm <span class="gradient-text">Prathamesh</span><br />
+            <span class="role-text"><span id="type-writer"></span><span class="cursor">|</span></span>
+          </h1>
+
+          <p class="hero-description">
+            DevOps Engineer with <strong>1+ years of experience</strong> architecting resilient cloud infrastructure, automating CI/CD delivery pipelines, and orchestrating Kubernetes clusters for high-availability workloads.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Hire Me</span>
+            </a>
+            <a href="#projects" class="btn btn-secondary">
+              <i class="fa-solid fa-code-branch"></i>
+              <span>View Projects</span>
+            </a>
+            <a href="#terminal-section" class="btn btn-outline">
+              <i class="fa-solid fa-terminal"></i>
+              <span>Live Terminal</span>
+            </a>
+          </div>
+
+          <div class="hero-quick-tags">
+            <span class="tech-chip"><i class="fa-brands fa-aws"></i> AWS</span>
+            <span class="tech-chip"><i class="fa-solid fa-dharmachakra"></i> Kubernetes</span>
+            <span class="tech-chip"><i class="fa-brands fa-docker"></i> Docker</span>
+            <span class="tech-chip"><i class="fa-solid fa-cubes"></i> Terraform</span>
+            <span class="tech-chip"><i class="fa-brands fa-github"></i> CI/CD</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="profile-card-wrapper">
+            <div class="profile-ambient-glow"></div>
+            <div class="profile-ring-outer"></div>
+            
+            <div class="profile-avatar-container">
+              <img src="images/DP.png" alt="Prathamesh Bhujade" class="profile-photo" />
+            </div>
+
+            <!-- Floating Tech Badges -->
+            <div class="floating-badge badge-k8s" title="Kubernetes">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" />
+              <span>Kubernetes</span>
+            </div>
+            <div class="floating-badge badge-aws" title="AWS">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" />
+              <span>AWS Cloud</span>
+            </div>
+            <div class="floating-badge badge-docker" title="Docker">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" />
+              <span>Docker</span>
+            </div>
+            <div class="floating-badge badge-terraform" title="Terraform">
+              <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform" />
+              <span>Terraform</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="right">
-        <div class="profile-wrapper">
-          <img src="images/DP.png" alt="profile" class="profile-pic" />
-          <div class="glitch"></div>
+
+    </section>
+
+    <!-- Interactive DevOps Cloud Terminal -->
+    <section id="terminal-section" class="terminal-showcase-section">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-terminal"></i> Interactive CLI</span>
+        <h2 class="section-title">DevOps Cloud Terminal</h2>
+        <p class="section-subtitle">Interact with my live simulated cluster. Type commands or click quick-actions below.</p>
+      </div>
+
+      <div class="terminal-window">
+        <div class="terminal-bar">
+          <div class="terminal-window-dots">
+            <span class="win-dot dot-close"></span>
+            <span class="win-dot dot-min"></span>
+            <span class="win-dot dot-max"></span>
+          </div>
+          <div class="terminal-session-title">
+            <i class="fa-solid fa-cloud-bolt text-cyan"></i> prathamesh@k8s-prod-cluster:~ (zsh)
+          </div>
+          <button id="terminal-reset-btn" class="terminal-reset-btn" title="Reset terminal">
+            <i class="fa-solid fa-rotate-right"></i>
+            <span>Reset</span>
+          </button>
+        </div>
+
+        <div class="terminal-quick-bar">
+          <span class="quick-title"><i class="fa-solid fa-bolt text-yellow"></i> Quick runs:</span>
+          <div class="quick-chip-group">
+            <button class="quick-chip" data-cmd="whoami">whoami</button>
+            <button class="quick-chip" data-cmd="kubectl get pods">kubectl get pods</button>
+            <button class="quick-chip" data-cmd="terraform status">terraform status</button>
+            <button class="quick-chip" data-cmd="cat skills.json">cat skills.json</button>
+            <button class="quick-chip" data-cmd="pipeline status">pipeline status</button>
+            <button class="quick-chip" data-cmd="contact">contact</button>
+            <button class="quick-chip" data-cmd="clear">clear</button>
+          </div>
+        </div>
+
+        <div id="terminal-output" class="terminal-body-output">
+          <div class="terminal-welcome-banner">
+            <pre class="terminal-ascii-art">
+   ___           _   _                           _     
+  / _ \_ __ __ _| |_| |__   __ _ _ __ ___   ___ | |__  
+ / /_)/ '__/ _` | __| '_ \ / _` | '_ ` _ \ / _ \| '_ \ 
+/ ___/| | | (_| | |_| | | | (_| | | | | | |  __/| | | |
+\/    |_|  \__,_|\__|_| |_|\__,_|_| |_| |_|\___||_| |_|
+            </pre>
+            <p class="terminal-tip">Type <span class="highlight-code">help</span> to view all available commands, or click any quick-run button above.</p>
+          </div>
+
+          <div class="terminal-history" id="terminal-history">
+            <!-- Dynamic command entries injected by JS -->
+          </div>
+
+          <div class="terminal-input-row">
+            <span class="term-user">prathamesh@cloud</span><span class="term-sep">:</span><span class="term-path">~</span><span class="term-symbol">$</span>
+            <input type="text" id="terminal-input" class="terminal-input" placeholder="Type a command (e.g. whoami, kubectl get pods, help)..." autocomplete="off" spellcheck="false" />
+            <button id="terminal-submit-btn" class="terminal-submit-btn" aria-label="Execute command"><i class="fa-solid fa-arrow-turn-down"></i></button>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="skills">
-      <h2>Skills & Tooling</h2>
-      
-      <!-- Continuous Scrolling Skills Bar -->
-      <div class="skills-ticker">
-        <div class="skills-track">
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/prometheus/prometheus-original.svg" alt="Prometheus"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gitlab/gitlab-original.svg" alt="GitLab"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ansible/ansible-original.svg" alt="Ansible"></div>
+    <!-- Skills & Tooling Section -->
+    <section id="skills" class="skills-section">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-layer-group"></i> Tech Stack</span>
+        <h2 class="section-title">DevOps Arsenal &amp; Tooling</h2>
+        <p class="section-subtitle">Core technologies and infrastructure tools I leverage to build highly resilient systems.</p>
+      </div>
+
+      <!-- Infinite Marquee Ticker -->
+      <div class="skills-ticker-wrapper">
+        <div class="skills-ticker-track">
+          <!-- Item Set 1 -->
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" /><span>Linux</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" /><span>AWS</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" /><span>Microsoft Azure</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" alt="GCP" /><span>Google Cloud (GCP)</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" /><span>Docker</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" /><span>Kubernetes</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform" /><span>Terraform</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gitlab/gitlab-original.svg" alt="GitLab CI" /><span>GitLab CI/CD</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bitbucket/bitbucket-original.svg" alt="Bitbucket" /><span>Bitbucket Pipelines</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub Actions" /><span>GitHub Actions</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" /><span>Jenkins</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ansible/ansible-original.svg" alt="Ansible" /><span>Ansible</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/prometheus/prometheus-original.svg" alt="Prometheus" /><span>Prometheus</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana" /><span>Grafana</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" /><span>Python</span></div>
+
           <!-- Duplicate for seamless loop -->
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/prometheus/prometheus-original.svg" alt="Prometheus"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gitlab/gitlab-original.svg" alt="GitLab"></div>
-          <div class="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ansible/ansible-original.svg" alt="Ansible"></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" /><span>Linux</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" /><span>AWS</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-original.svg" alt="Azure" /><span>Microsoft Azure</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg" alt="GCP" /><span>Google Cloud (GCP)</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" /><span>Docker</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" /><span>Kubernetes</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/terraform/terraform-original.svg" alt="Terraform" /><span>Terraform</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/gitlab/gitlab-original.svg" alt="GitLab CI" /><span>GitLab CI/CD</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bitbucket/bitbucket-original.svg" alt="Bitbucket" /><span>Bitbucket Pipelines</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" alt="GitHub Actions" /><span>GitHub Actions</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/jenkins/jenkins-original.svg" alt="Jenkins" /><span>Jenkins</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ansible/ansible-original.svg" alt="Ansible" /><span>Ansible</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/prometheus/prometheus-original.svg" alt="Prometheus" /><span>Prometheus</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/grafana/grafana-original.svg" alt="Grafana" /><span>Grafana</span></div>
+          <div class="ticker-item"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" /><span>Python</span></div>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="skills-filter-nav">
+        <button class="filter-tab active" data-category="all">All Tools</button>
+        <button class="filter-tab" data-category="cloud">Cloud &amp; IaC</button>
+        <button class="filter-tab" data-category="containers">Containers &amp; K8s</button>
+        <button class="filter-tab" data-category="cicd">CI/CD &amp; Automation</button>
+        <button class="filter-tab" data-category="monitoring">Observability</button>
+      </div>
+
+      <!-- Spotlight Skills Grid -->
+      <div class="spotlight-skills-grid">
+        <div class="skill-spotlight-card" data-category="cloud">
+          <div class="card-glow-overlay"></div>
+          <div class="skill-card-icon"><i class="fa-brands fa-aws text-orange"></i></div>
+          <h3 class="skill-card-title">AWS &amp; Cloud Architecture</h3>
+          <p class="skill-card-desc">EC2, S3, VPC, IAM, EKS, RDS, CloudWatch, Lambda, Route53, and cost optimization.</p>
+          <span class="skill-level-pill">Advanced</span>
+        </div>
+
+        <div class="skill-spotlight-card" data-category="cloud">
+          <div class="card-glow-overlay"></div>
+          <div class="skill-card-icon"><i class="fa-brands fa-microsoft text-blue"></i></div>
+          <h3 class="skill-card-title">Azure &amp; Google Cloud (GCP)</h3>
+          <p class="skill-card-desc">Azure Virtual Machines, Blob Storage, AKS, GCP Compute Engine, GKE clusters, and Cloud Run.</p>
+          <span class="skill-level-pill">Advanced</span>
+        </div>
+
+        <div class="skill-spotlight-card" data-category="containers">
+          <div class="card-glow-overlay"></div>
+          <div class="skill-card-icon"><i class="fa-solid fa-dharmachakra text-cyan"></i></div>
+          <h3 class="skill-card-title">Kubernetes &amp; Orchestration</h3>
+          <p class="skill-card-desc">Cluster provisioning, Deployments, Services, Ingress, Helm charts, RBAC, and HPA.</p>
+          <span class="skill-level-pill">Advanced</span>
+        </div>
+
+        <div class="skill-spotlight-card" data-category="containers">
+          <div class="card-glow-overlay"></div>
+          <div class="skill-card-icon"><i class="fa-brands fa-docker text-blue"></i></div>
+          <h3 class="skill-card-title">Docker &amp; Containerization</h3>
+          <p class="skill-card-desc">Multi-stage builds, minimal image footprints, Docker Compose, and vulnerability scanning.</p>
+          <span class="skill-level-pill">Expert</span>
+        </div>
+
+        <div class="skill-spotlight-card" data-category="cloud">
+          <div class="card-glow-overlay"></div>
+          <div class="skill-card-icon"><i class="fa-solid fa-cubes text-purple"></i></div>
+          <h3 class="skill-card-title">Terraform (IaC)</h3>
+          <p class="skill-card-desc">Declarative infrastructure as code, reusable modules, state locking, and multi-env setups.</p>
+          <span class="skill-level-pill">Proficient</span>
+        </div>
+
+        <div class="skill-spotlight-card" data-category="cicd">
+          <div class="card-glow-overlay"></div>
+          <div class="skill-card-icon"><i class="fa-brands fa-github text-white"></i></div>
+          <h3 class="skill-card-title">GitHub Actions &amp; CI/CD</h3>
+          <p class="skill-card-desc">Automated testing, continuous deployment, matrix builds, custom actions, and release flows.</p>
+          <span class="skill-level-pill">Expert</span>
+        </div>
+
+        <div class="skill-spotlight-card" data-category="cicd">
+          <div class="card-glow-overlay"></div>
+          <div class="skill-card-icon"><i class="fa-brands fa-gitlab text-orange"></i></div>
+          <h3 class="skill-card-title">GitLab CI &amp; Bitbucket Pipelines</h3>
+          <p class="skill-card-desc">Multi-stage `.gitlab-ci.yml` pipelines, Bitbucket deployment steps, secret management, and artifact caching.</p>
+          <span class="skill-level-pill">Advanced</span>
+        </div>
+
+        <div class="skill-spotlight-card" data-category="cicd">
+          <div class="card-glow-overlay"></div>
+          <div class="skill-card-icon"><i class="fa-brands fa-jenkins text-red"></i></div>
+          <h3 class="skill-card-title">Jenkins &amp; Ansible</h3>
+          <p class="skill-card-desc">Declarative Jenkinsfiles, distributed build agents, configuration management playbooks.</p>
+          <span class="skill-level-pill">Proficient</span>
+        </div>
+
+        <div class="skill-spotlight-card" data-category="monitoring">
+          <div class="card-glow-overlay"></div>
+          <div class="skill-card-icon"><i class="fa-solid fa-chart-line text-orange"></i></div>
+          <h3 class="skill-card-title">Prometheus &amp; Grafana</h3>
+          <p class="skill-card-desc">Metrics collection, PromQL, customized observability dashboards, and alertmanager alerts.</p>
+          <span class="skill-level-pill">Proficient</span>
+        </div>
+
+        <div class="skill-spotlight-card" data-category="cicd">
+          <div class="card-glow-overlay"></div>
+          <div class="skill-card-icon"><i class="fa-brands fa-linux text-yellow"></i></div>
+          <h3 class="skill-card-title">Linux &amp; Shell Scripting</h3>
+          <p class="skill-card-desc">Kernel performance tuning, systemd, Bash automation, security hardening, and networking.</p>
+          <span class="skill-level-pill">Expert</span>
+        </div>
+      </div>
+
+      <!-- Radial Skill Strength Gauges -->
+      <div class="skill-strength-wrapper">
+        <h3 class="subsection-title"><i class="fa-solid fa-gauge text-cyan"></i> Proficiency Matrix</h3>
+        <div class="radial-skills-grid">
+          <div class="radial-skill" data-percent="90">
+            <svg class="radial-progress" viewBox="0 0 120 120">
+              <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="radial-bar" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="radial-text">
+              <span class="radial-percent">90%</span>
+              <span class="radial-label">Linux</span>
+            </div>
+          </div>
+
+          <div class="radial-skill" data-percent="88">
+            <svg class="radial-progress" viewBox="0 0 120 120">
+              <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="radial-bar" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="radial-text">
+              <span class="radial-percent">88%</span>
+              <span class="radial-label">Docker</span>
+            </div>
+          </div>
+
+          <div class="radial-skill" data-percent="85">
+            <svg class="radial-progress" viewBox="0 0 120 120">
+              <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="radial-bar" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="radial-text">
+              <span class="radial-percent">85%</span>
+              <span class="radial-label">AWS</span>
+            </div>
+          </div>
+
+          <div class="radial-skill" data-percent="80">
+            <svg class="radial-progress" viewBox="0 0 120 120">
+              <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="radial-bar" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="radial-text">
+              <span class="radial-percent">80%</span>
+              <span class="radial-label">Azure</span>
+            </div>
+          </div>
+
+          <div class="radial-skill" data-percent="76">
+            <svg class="radial-progress" viewBox="0 0 120 120">
+              <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="radial-bar" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="radial-text">
+              <span class="radial-percent">76%</span>
+              <span class="radial-label">GCP</span>
+            </div>
+          </div>
+
+          <div class="radial-skill" data-percent="84">
+            <svg class="radial-progress" viewBox="0 0 120 120">
+              <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="radial-bar" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="radial-text">
+              <span class="radial-percent">84%</span>
+              <span class="radial-label">CI/CD &amp; GitOps</span>
+            </div>
+          </div>
+
+          <div class="radial-skill" data-percent="80">
+            <svg class="radial-progress" viewBox="0 0 120 120">
+              <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="radial-bar" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="radial-text">
+              <span class="radial-percent">80%</span>
+              <span class="radial-label">Kubernetes</span>
+            </div>
+          </div>
+
+          <div class="radial-skill" data-percent="75">
+            <svg class="radial-progress" viewBox="0 0 120 120">
+              <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="radial-bar" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="radial-text">
+              <span class="radial-percent">75%</span>
+              <span class="radial-label">Terraform</span>
+            </div>
+          </div>
+
+          <div class="radial-skill" data-percent="80">
+            <svg class="radial-progress" viewBox="0 0 120 120">
+              <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="radial-bar" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="radial-text">
+              <span class="radial-percent">80%</span>
+              <span class="radial-label">Monitoring</span>
+            </div>
+          </div>
+
+          <div class="radial-skill" data-percent="78">
+            <svg class="radial-progress" viewBox="0 0 120 120">
+              <circle class="radial-bg" cx="60" cy="60" r="50"></circle>
+              <circle class="radial-bar" cx="60" cy="60" r="50"></circle>
+            </svg>
+            <div class="radial-text">
+              <span class="radial-percent">78%</span>
+              <span class="radial-label">Python/Bash</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="skill-bars">
-    <h2>Skill Strength</h2>
+    <!-- Featured Projects Section -->
+    <section id="projects" class="projects-section">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-diagram-project"></i> Portfolio Works</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Real-world cloud architectures, automated deployment workflows, and containerized systems.</p>
+      </div>
 
-    <div class="radial-skills-grid">
-        <div class="radial-skill" data-percent="85" style="--p:0.85">
-          <svg class="radial-progress" viewBox="0 0 120 120">
-            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <div class="radial-text">
-            <span class="radial-percent">85%</span>
-            <span class="radial-label">AWS</span>
-          </div>
-        </div>
+      <!-- Project Filter Tabs -->
+      <div class="projects-filter-nav">
+        <button class="project-filter-btn active" data-filter="all">All Projects</button>
+        <button class="project-filter-btn" data-filter="k8s">Kubernetes &amp; Cloud</button>
+        <button class="project-filter-btn" data-filter="cicd">GitOps &amp; CI/CD</button>
+        <button class="project-filter-btn" data-filter="fullstack">Web &amp; Python</button>
+      </div>
 
-        <div class="radial-skill" data-percent="70" style="--p:0.70">
-          <svg class="radial-progress" viewBox="0 0 120 120">
-            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <div class="radial-text">
-            <span class="radial-percent">70%</span>
-            <span class="radial-label">Azure</span>
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card" data-category="k8s cicd">
+          <div class="project-card-glow"></div>
+          <div class="project-top">
+            <div class="project-status-badge"><span class="badge-dot-green"></span> Production Grade</div>
+            <div class="project-tags">
+              <span class="tag tag-k8s">EKS</span>
+              <span class="tag tag-gitops">ArgoCD</span>
+              <span class="tag tag-tf">Terraform</span>
+              <span class="tag tag-docker">Docker</span>
+            </div>
           </div>
-        </div>
 
-        <div class="radial-skill" data-percent="90" style="--p:0.90">
-          <svg class="radial-progress" viewBox="0 0 120 120">
-            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <div class="radial-text">
-            <span class="radial-percent">90%</span>
-            <span class="radial-label">Linux</span>
-          </div>
-        </div>
+          <h3 class="project-title">Student Management Web Platform</h3>
+          <p class="project-desc">
+            Enterprise-grade Java-based record management platform containerized with Docker and deployed to AWS EKS with GitOps synchronization via ArgoCD. Features automated zero-downtime rolling upgrades and Tomcat clustering.
+          </p>
 
-        <div class="radial-skill" data-percent="85" style="--p:0.85">
-          <svg class="radial-progress" viewBox="0 0 120 120">
-            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <div class="radial-text">
-            <span class="radial-percent">85%</span>
-            <span class="radial-label">Docker</span>
+          <div class="project-metrics-pill">
+            <i class="fa-solid fa-chart-line text-cyan"></i>
+            <span>Automated GitOps deployments with 99.9% uptime</span>
           </div>
-        </div>
 
-        <div class="radial-skill" data-percent="75" style="--p:0.75">
-          <svg class="radial-progress" viewBox="0 0 120 120">
-            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <div class="radial-text">
-            <span class="radial-percent">75%</span>
-            <span class="radial-label">Kubernetes</span>
+          <div class="project-links">
+            <a href="https://github.com/prathamesh633" target="_blank" rel="noopener noreferrer" class="project-btn btn-code">
+              <i class="fa-brands fa-github"></i> Code Repository
+            </a>
+            <a href="#contact" class="project-btn btn-demo">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Architecture Demo
+            </a>
           </div>
-        </div>
+        </article>
 
-        <div class="radial-skill" data-percent="70" style="--p:0.70">
-          <svg class="radial-progress" viewBox="0 0 120 120">
-            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <div class="radial-text">
-            <span class="radial-percent">70%</span>
-            <span class="radial-label">Terraform</span>
+        <!-- Project 2 -->
+        <article class="project-card" data-category="k8s">
+          <div class="project-card-glow"></div>
+          <div class="project-top">
+            <div class="project-status-badge"><span class="badge-dot-green"></span> Live Microservices</div>
+            <div class="project-tags">
+              <span class="tag tag-k8s">Kubernetes</span>
+              <span class="tag tag-docker">Docker</span>
+              <span class="tag tag-cicd">CI/CD</span>
+              <span class="tag tag-aws">Ingress</span>
+            </div>
           </div>
-        </div>
 
-        <div class="radial-skill" data-percent="73" style="--p:0.73">
-          <svg class="radial-progress" viewBox="0 0 120 120">
-            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <div class="radial-text">
-            <span class="radial-percent">73%</span>
-            <span class="radial-label">Ansible</span>
-          </div>
-        </div>
+          <h3 class="project-title">Reddit Microservices on Kubernetes</h3>
+          <p class="project-desc">
+            Full-stack social aggregation clone orchestrated on a multi-node Kubernetes cluster. Designed Helm deployment charts, Ingress routing with TLS termination, horizontal pod autoscaling (HPA), and GitHub Actions pipeline automation.
+          </p>
 
-        <div class="radial-skill" data-percent="84" style="--p:0.84">
-          <svg class="radial-progress" viewBox="0 0 120 120">
-            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <div class="radial-text">
-            <span class="radial-percent">84%</span>
-            <span class="radial-label">Prometheus</span>
+          <div class="project-metrics-pill">
+            <i class="fa-solid fa-gauge-high text-green"></i>
+            <span>HPA autoscaling with sub-second health-checks</span>
           </div>
-        </div>
 
-        <div class="radial-skill" data-percent="78" style="--p:0.78">
-          <svg class="radial-progress" viewBox="0 0 120 120">
-            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <div class="radial-text">
-            <span class="radial-percent">78%</span>
-            <span class="radial-label">Grafana</span>
+          <div class="project-links">
+            <a href="https://github.com/prathamesh633" target="_blank" rel="noopener noreferrer" class="project-btn btn-code">
+              <i class="fa-brands fa-github"></i> Source Code
+            </a>
+            <a href="#contact" class="project-btn btn-demo">
+              <i class="fa-solid fa-layer-group"></i> Cluster Specs
+            </a>
           </div>
-        </div>
+        </article>
 
-        <div class="radial-skill" data-percent="80" style="--p:0.80">
-          <svg class="radial-progress" viewBox="0 0 120 120">
-            <circle class="radial-bg" cx="60" cy="60" r="54"></circle>
-            <circle class="radial-bar" cx="60" cy="60" r="54"></circle>
-          </svg>
-          <div class="radial-text">
-            <span class="radial-percent">80%</span>
-            <span class="radial-label">Python</span>
+        <!-- Project 3 -->
+        <article class="project-card" data-category="fullstack">
+          <div class="project-card-glow"></div>
+          <div class="project-top">
+            <div class="project-status-badge"><span class="badge-dot-blue"></span> Containerized</div>
+            <div class="project-tags">
+              <span class="tag tag-python">Python</span>
+              <span class="tag tag-flask">Flask</span>
+              <span class="tag tag-docker">Docker</span>
+              <span class="tag tag-aws">AWS</span>
+            </div>
           </div>
-        </div>
-    </div>
+
+          <h3 class="project-title">Python Flask Cloud Application</h3>
+          <p class="project-desc">
+            Modern Python Flask web service engineered with containerized reproducible environments, optimized multi-stage Dockerfiles, dynamic health-check probes, and Prometheus instrumentation for real-time monitoring.
+          </p>
+
+          <div class="project-metrics-pill">
+            <i class="fa-solid fa-bolt text-yellow"></i>
+            <span>Minimal image size (&lt;85MB) via Alpine multi-stage</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/prathamesh633" target="_blank" rel="noopener noreferrer" class="project-btn btn-code">
+              <i class="fa-brands fa-github"></i> Repository
+            </a>
+            <a href="#contact" class="project-btn btn-demo">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Preview
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card" data-category="fullstack cicd">
+          <div class="project-card-glow"></div>
+          <div class="project-top">
+            <div class="project-status-badge"><span class="badge-dot-green"></span> Nginx Reverse Proxy</div>
+            <div class="project-tags">
+              <span class="tag tag-django">Django</span>
+              <span class="tag tag-react">React</span>
+              <span class="tag tag-nginx">Nginx</span>
+              <span class="tag tag-docker">Docker Compose</span>
+            </div>
+          </div>
+
+          <h3 class="project-title">Full-Stack Notes Platform &amp; Reverse Proxy</h3>
+          <p class="project-desc">
+            Multi-container application combining a React SPA frontend and Django REST backend. Configured Nginx as a reverse proxy with caching headers, rate limiting, and unified Docker Compose orchestration.
+          </p>
+
+          <div class="project-metrics-pill">
+            <i class="fa-solid fa-shield-halved text-purple"></i>
+            <span>Reverse proxy SSL termination &amp; static caching</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/prathamesh633" target="_blank" rel="noopener noreferrer" class="project-btn btn-code">
+              <i class="fa-brands fa-github"></i> GitHub Source
+            </a>
+            <a href="#contact" class="project-btn btn-demo">
+              <i class="fa-solid fa-box"></i> Setup Guide
+            </a>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section id="education">
-      <h2>Education</h2>
-      <div class="timeline">
-        <div class="timeline-item" data-side="right">
-          <div class="content">
-            <h4>B.Tech – Electronics & Telecommunication</h4>
-            <div class="date">2020 – 2024</div>
-            <p>7.86.7 CGPA. Built college cloud club, organised 3 DevOps workshops, led 30-student Kubernetes bootcamp.</p>
+    <!-- Journey / Work Experience Section -->
+    <section id="journey" class="journey-section">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-briefcase"></i> Work Experience</span>
+        <h2 class="section-title">Professional Journey</h2>
+        <p class="section-subtitle">Hands-on industry experience building, maintaining, and scaling DevOps pipelines.</p>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Experience 1 -->
+        <div class="timeline-card" data-side="right">
+          <div class="timeline-marker">
+            <div class="timeline-dot-inner"></div>
+          </div>
+          <div class="timeline-content-card">
+            <div class="timeline-header-row">
+              <div>
+                <span class="timeline-badge-current">Current Position</span>
+                <h3 class="timeline-role">Cloud DevOps Intern</h3>
+                <h4 class="timeline-company">BizTranSights Solutions, LLP</h4>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date"><i class="fa-regular fa-calendar"></i> Sep 2025 – Present</span>
+                <span class="timeline-location"><i class="fa-solid fa-location-dot"></i> Nagpur, Maharashtra</span>
+              </div>
+            </div>
+            
+            <p class="timeline-text">
+              Co-owning the enterprise CI/CD platform serving 50+ engineers. Spearheaded the migration of over 200+ deployment workflows to modernized GitHub Actions, reducing build durations by 40% and unlocking deployment frequencies of 5×/day.
+            </p>
+
+            <div class="timeline-chips">
+              <span class="t-chip">GitHub Actions</span>
+              <span class="t-chip">AWS</span>
+              <span class="t-chip">Docker</span>
+              <span class="t-chip">Pipeline Optimization</span>
+              <span class="t-chip highlight-chip">40% Build Speedup</span>
+            </div>
           </div>
         </div>
-        <div class="timeline-item" data-side="left">
-          <div class="content">
-            <h4>College – G.H. Raisoni Jr. College</h4>
-            <div class="date">2018 - 2020</div>
-            <p>72.7 %</p>
+
+        <!-- Experience 2 -->
+        <div class="timeline-card" data-side="left">
+          <div class="timeline-marker">
+            <div class="timeline-dot-inner"></div>
           </div>
-        </div>
-        <div class="timeline-item" data-side="right">
-          <div class="content">
-            <h4>School - Sri Guru Harkrishan Public School</h4>
-            <div class="date">2008 - 2018</div>
-            <p>6-course Coursera specialisation – Git, Python, automation, troubleshooting & CI basics.</p>
+          <div class="timeline-content-card">
+            <div class="timeline-header-row">
+              <div>
+                <span class="timeline-badge-past">Completed</span>
+                <h3 class="timeline-role">DevOps Engineer Intern</h3>
+                <h4 class="timeline-company">Hisan Labs Pvt. Ltd.</h4>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-date"><i class="fa-regular fa-calendar"></i> Sep 2024 – June 2025</span>
+                <span class="timeline-location"><i class="fa-solid fa-location-dot"></i> Pune, Maharashtra</span>
+              </div>
+            </div>
+
+            <p class="timeline-text">
+              Containerized legacy multi-tier web applications with Docker. Developed 30+ automated Ansible configuration playbooks and constructed comprehensive Grafana &amp; Prometheus observability dashboards, reducing Mean Time to Detect (MTTD) by 25%.
+            </p>
+
+            <div class="timeline-chips">
+              <span class="t-chip">Ansible</span>
+              <span class="t-chip">Prometheus</span>
+              <span class="t-chip">Grafana</span>
+              <span class="t-chip">Linux Hardening</span>
+              <span class="t-chip highlight-chip">25% MTTD Reduction</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="projects">
-      <h2>Featured Projects</h2>
-      <div class="project-grid">
-        <div class="project-card">
-          <div class="top">
-            <h3>Student Management Web Application</h3>
-            <div class="tags"><span class="tag">EKS</span><span class="tag">ArgoCD</span><span class="tag">Terraform</span></div>
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-graduation-cap"></i> Academic Background</span>
+        <h2 class="section-title">Education &amp; Qualifications</h2>
+        <p class="section-subtitle">Academic foundations, leadership roles, and technical achievements.</p>
+      </div>
+
+      <div class="education-grid">
+        <div class="edu-card spotlight-card">
+          <div class="edu-top">
+            <div class="edu-icon"><i class="fa-solid fa-graduation-cap text-cyan"></i></div>
+            <div class="edu-score-badge">7.86 CGPA</div>
           </div>
-          <p>BJava-based web application designed for managing student records. Allows users to perform core operations such as viewing, adding, editing, and deleting student information. The application was built using Java, Servlets, and JSP, with Apache Tomcat serving as the web server. Containerized using Docker for easy deployment and execution.</p>
-          <div class="links">
-            <a href="https://github.com/YOU/gitops-platform" target="_blank"><i class="fa-brands fa-github"></i> Source</a>
-            <a href="https://demo.you.dev" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-          </div>
+          <h3 class="edu-degree">B.Tech – Electronics &amp; Telecommunication</h3>
+          <h4 class="edu-institution">G.H. Raisoni College of Engineering</h4>
+          <span class="edu-year"><i class="fa-regular fa-calendar"></i> 2020 – 2024</span>
+          <p class="edu-details">
+            Founded the college Cloud Computing Club. Organized 3 hands-on DevOps workshops and led a 30-student intensive Kubernetes &amp; Docker bootcamp.
+          </p>
         </div>
-        <div class="project-card">
-          <div class="top">
-            <h3>Python Flask Web App</h3>
-            <div class="tags"><span class="tag">Python</span><span class="tag">Lambda</span><span class="tag">S3</span></div>
+
+        <div class="edu-card spotlight-card">
+          <div class="edu-top">
+            <div class="edu-icon"><i class="fa-solid fa-building-columns text-purple"></i></div>
+            <div class="edu-score-badge">72.7%</div>
           </div>
-          <p>A Python Flask web application with a modern UI, containerized using Docker for streamlined deployment. Created a reproducible environment by containerizing the application, ensuring consistent execution across different setups. The project includes a health check endpoint for monitoring and is designed for easy deployment.</p>
-          <div class="links">
-            <a href="https://github.com/YOU/cost-guard" target="_blank"><i class="fa-brands fa-github"></i> Source</a>
-            <a href="https://cost-demo.you.dev" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-          </div>
+          <h3 class="edu-degree">Higher Secondary Certificate (HSC)</h3>
+          <h4 class="edu-institution">G.H. Raisoni Junior College</h4>
+          <span class="edu-year"><i class="fa-regular fa-calendar"></i> 2018 – 2020</span>
+          <p class="edu-details">
+            Majored in Science with focus on Mathematics, Physics, and Computer Fundamentals.
+          </p>
         </div>
-        <div class="project-card">
-          <div class="top">
-            <h3>Reddit Clone on Kubernetes</h3>
-            <div class="tags"><span class="tag">Go</span><span class="tag">ECS</span><span class="tag">CloudWatch</span></div>
+
+        <div class="edu-card spotlight-card">
+          <div class="edu-top">
+            <div class="edu-icon"><i class="fa-solid fa-certificate text-green"></i></div>
+            <div class="edu-score-badge">Specialization</div>
           </div>
-          <p>This is a full-stack Reddit clone deployed on Kubernetes, demonstrating practical DevOps skills. The application was built and containerized using Docker, then orchestrated on a Kubernetes cluster. Key aspects include setting up CI/CD pipelines for automated deployments, managing cluster resources, and ensuring application availability and scalability.</p>
-          <div class="links">
-            <a href="https://github.com/YOU/ecs-shifter" target="_blank"><i class="fa-brands fa-github"></i> Source</a>
-            <a href="https://github.com/YOU/ecs-shifter/releases" target="_blank"><i class="fa-solid fa-download"></i> Releases</a>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="top">
-            <h3>Django Notes App</h3>
-            <div class="tags"><span class="tag">Kubebuilder</span><span class="tag">Velero</span><span class="tag">Golang</span></div>
-          </div>
-          <p>A simple notes application built with React and Django, containerized for deployment. Focused on setting up a robust development and deployment pipeline. This included containerizing the application using Docker and configuring Nginx as a reverse proxy for efficient serving.</p>
-          <div class="links">
-            <a href="https://github.com/YOU/k8s-backup-controller" target="_blank"><i class="fa-brands fa-github"></i> Source</a>
-            <a href="https://artifacthub.io/packages/YOU/k8s-backup-controller" target="_blank"><i class="fa-solid fa-box"></i> Helm Chart</a>
-          </div>
+          <h3 class="edu-degree">Secondary School &amp; Continuous Learning</h3>
+          <h4 class="edu-institution">Sri Guru Harkrishan Public School &amp; Coursera</h4>
+          <span class="edu-year"><i class="fa-regular fa-calendar"></i> 2008 – 2018</span>
+          <p class="edu-details">
+            Completed Google IT Automation with Python &amp; Linux Foundation courses covering Git, automated troubleshooting, and CI/CD foundations.
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="journey">
-      <h2>Journey</h2>
-      <div class="timeline">
-        <div class="timeline-item" data-side="right">
-          <div class="content">
-            <h4>Cloud DevOps Intern – BizTranSights Solutions, LLP</h4>
-            <div class="location">Nagpur, Maharashtra</div>
-            <div class="date">Sep 2025 – present</div>
-            <p>Own CI/CD platform for 50+ engineers. Migrated 200+ pipelines to GitHub Actions, cut build time 40 %, deployments 5×/day.</p>
-          </div>
-        </div>
-        <div class="timeline-item" data-side="left">
-          <div class="content">
-            <h4>DevOps Engineer Intern – Hisan Labs Pvt. Ltd.</h4>
-            <div class="location">Pune, Maharashtra</div>
-            <div class="date">Sep 2024 – June 2025</div>
-            <p>Containerised legacy apps, wrote 30+ Ansible playbooks, built Grafana dashboards—MTTD ↓ 25 %.</p>
-          </div>
-        </div>
-        <!-- <div class="timeline-item" data-side="right">
-          <div class="content">
-            <h4>Teaching Assistant – University</h4>
-            <div class="date">Aug 2021 – Apr 2022</div>
-            <p>Helped 120 students with DSA. Created auto-grading GitHub Classroom pipelines, professor grading load ↓ 60 %.</p>
-          </div>
-        </div> -->
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="section-header">
+        <span class="section-tag"><i class="fa-solid fa-envelope"></i> Reach Out</span>
+        <h2 class="section-title">Let’s Build Something Resilient</h2>
+        <p class="section-subtitle">Interested in discussing DevOps infrastructure, collaboration, or full-time opportunities? Send a message!</p>
       </div>
-    </section>
 
-    <section id="contact">
-      <h2>Let’s Connect</h2>
-      <div class="contact-grid">
-        <form action="https://formspree.io/f/YOUR_ID" method="POST" class="contact-form">
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="_replyto" placeholder="Your email" required />
-          <textarea name="message" rows="5" placeholder="Tell me about your infra pain-points..." required></textarea>
-          <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
-        </form>
-        <div class="info-card">
-          <h3>Reach Me</h3>
-          <ul>
-            <li><i class="fa-solid fa-envelope"></i> prathameshbhujade@outlook.com</li>
-            <li><i class="fa-solid fa-phone"></i>88******33</li>
-            <li><i class="fa-solid fa-location-dot"></i> Nagpur, Maharashtra, India</li>
-            <li><i class="fa-brands fa-linkedin"></i> linkedin.com/in/YOU</li>
-            <li><i class="fa-brands fa-github"></i> https://github.com/prathamesh633</li>
-          </ul>
-          <a href="assets/resume.pdf" target="_blank" class="btn resume-btn"><i class="fa-solid fa-download"></i> Download Résumé</a>
+      <div class="contact-container">
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper glass-card">
+          <h3 class="form-title"><i class="fa-solid fa-paper-plane text-cyan"></i> Send a Direct Message</h3>
+          <form id="contact-form" action="https://formspree.io/f/prathameshbhujade@outlook.com" method="POST" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <div class="input-with-icon">
+                  <i class="fa-regular fa-user"></i>
+                  <input type="text" id="name" name="name" placeholder="John Doe" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Your Email</label>
+                <div class="input-with-icon">
+                  <i class="fa-regular fa-envelope"></i>
+                  <input type="email" id="email" name="_replyto" placeholder="john@example.com" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject / Purpose</label>
+              <div class="input-with-icon">
+                <i class="fa-solid fa-tag"></i>
+                <input type="text" id="subject" name="subject" placeholder="DevOps Opportunity / Project Collaboration" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <div class="input-with-icon textarea-icon">
+                <i class="fa-regular fa-comment-dots"></i>
+                <textarea id="message" name="message" rows="5" placeholder="Tell me about your infrastructure challenges, project requirements, or role details..." required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn btn-primary btn-submit">
+              <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> Send Message</span>
+              <span class="btn-spinner"><i class="fa-solid fa-spinner fa-spin"></i> Sending...</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info Card -->
+        <div class="contact-info-wrapper glass-card">
+          <h3 class="info-title"><i class="fa-solid fa-address-card text-purple"></i> Contact Details</h3>
+          
+          <div class="contact-info-list">
+            <!-- Email Item with Copy Button -->
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="info-details">
+                <span class="info-label">Email Address</span>
+                <a href="mailto:prathameshbhujade@outlook.com" class="info-value">prathameshbhujade@outlook.com</a>
+              </div>
+              <button id="copy-email-btn" class="copy-btn" title="Copy email address" aria-label="Copy email to clipboard">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="info-details">
+                <span class="info-label">Location</span>
+                <span class="info-value">Nagpur, Maharashtra, India (Open to Remote / Relocation)</span>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-brands fa-linkedin"></i></div>
+              <div class="info-details">
+                <span class="info-label">LinkedIn</span>
+                <a href="https://linkedin.com/in/prathamesh633" target="_blank" rel="noopener noreferrer" class="info-value">linkedin.com/in/prathamesh633</a>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon"><i class="fa-brands fa-github"></i></div>
+              <div class="info-details">
+                <span class="info-label">GitHub</span>
+                <a href="https://github.com/prathamesh633" target="_blank" rel="noopener noreferrer" class="info-value">github.com/prathamesh633</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="resume-cta-box">
+            <div class="resume-text-group">
+              <span class="resume-title">Need a standard résumé?</span>
+              <span class="resume-sub">PDF version with complete project breakdown.</span>
+            </div>
+            <a href="https://github.com/prathamesh633" target="_blank" class="btn btn-secondary resume-btn">
+              <i class="fa-solid fa-file-arrow-down"></i> View Résumé
+            </a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="footer-social">
-      <a href="https://github.com/prathamesh633" target="_blank"><i class="fa-brands fa-github"></i></a>
-      <a href="https://linkedin.com/in/YOU" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="mailto:prathameshbhujade@outlook.com"><i class="fa-solid fa-envelope"></i></a>
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#about" class="footer-logo">
+          <span class="logo-terminal">&gt;_</span> Prathamesh Bhujade
+        </a>
+        <p class="footer-bio">DevOps Engineer passionate about continuous delivery, Kubernetes orchestration, and cloud automation.</p>
+      </div>
+
+      <div class="footer-links-group">
+        <span class="footer-heading">Quick Navigation</span>
+        <div class="footer-nav-grid">
+          <a href="#about">About</a>
+          <a href="#terminal-section">Terminal</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#journey">Journey</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+
+      <div class="footer-social-group">
+        <span class="footer-heading">Connect</span>
+        <div class="footer-social-icons">
+          <a href="https://github.com/prathamesh633" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon-btn">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/prathamesh633" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon-btn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="mailto:prathameshbhujade@outlook.com" aria-label="Email" class="social-icon-btn">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
     </div>
-    Built with ⚙️ &amp; vanilla code – no cookies, no trackers.
+
+    <div class="footer-bottom">
+      <p>© 2026 Prathamesh Bhujade. Built with vanilla HTML, modern CSS &amp; JavaScript. No trackers.</p>
+    </div>
   </footer>
 
-  <script src="script.js?v=7"></script>
-  <script>
-    // Remove loading screen after page loads
-    window.addEventListener('load', () => {
-      const loadingScreen = document.getElementById('loading-screen');
-      setTimeout(() => {
-        loadingScreen.style.opacity = '0';
-        setTimeout(() => {
-          loadingScreen.style.display = 'none';
-        }, 500);
-      }, 1000);
-    });
-    
-    document.documentElement.classList.remove('light');
-  </script>
+  <script src="script.js?v=20"></script>
 </body>
 </html>
